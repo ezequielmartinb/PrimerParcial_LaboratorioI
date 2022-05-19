@@ -56,7 +56,9 @@ int main(void)
 	int idIngresado;
 	int contadorCensistasActivosConZonaPendiente;
 	int cantidadMaximaAusentes;
+	int totalCensados;
 	char localidadMaximaAusentes[50];
+	char censistaConZonaMasCensada[50];
 
 	setbuf(stdout, NULL);
 	//inicializarCensistas(listaCensista, TAM_CENSISTA);
@@ -148,9 +150,12 @@ int main(void)
 					imprimirZona(listaZona, TAM_ZONA, listaLocalidades, TAM_LOCALIDADES, listaCensista, TAM_CENSISTA);
 					break;
 				case 9:
-					if(utn_getNumeroEntero(&opcionInformes, "Que desea Informar?\n \t1-Cantidad de censistas en estado Activo con zona Pendiente\n"
+					if(utn_getNumeroEntero(&opcionInformes, "Que desea Informar?\n "
+							"\t1-Cantidad de censistas en estado Activo con zona Pendiente\n"
 							"\t2-Mostrar el listado de censistas de Avellaneda, Lanús, Lomas de Zamora o Banfield ordenados alfabéticamente por apellido y nombre\n"
-							"\t3-Informar nombre de localidad con más casas ausentes\n", "ERROR. OPCION INVALIDA. ", 1, 3, 3)==0)
+							"\t3-Informar nombre de localidad con más casas ausentes\n"
+							"\t4- Informar el censista cuya zona fue la más censada (total censados presencial y virtual)\n"
+							"\t5- VOLVER AL MENU ANTERIOR\n", "ERROR. OPCION INVALIDA. ", 1, 5, 3)==0)
 					{
 						switch(opcionInformes)
 						{
@@ -174,6 +179,15 @@ int main(void)
 								{
 									printf("La localidad con mayor cantidad de ausentes es: %s con una cantidad de ausentes de: %d\n", localidadMaximaAusentes, cantidadMaximaAusentes);
 								}
+								break;
+							case 4:
+								//d. Informar el censista cuya zona fue la más censada (total censados presencial y virtual)
+								if(censistaConLaZonaMasCensada(listaCensista, TAM_CENSISTA, listaZona, TAM_ZONA, listaCargarDatos, TAM_CARGAR_DATOS, &totalCensados, censistaConZonaMasCensada)==0)
+								{
+									printf("El censista con la zona más censada es: %s con un total de censados: %d\n", censistaConZonaMasCensada, totalCensados);
+								}
+								break;
+							case 5:
 								break;
 						}
 					}

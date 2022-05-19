@@ -12,10 +12,7 @@ typedef struct
 	int cantidadCensadosInSitu;
 	int cantidadCensadosFormularioDigital;
 	int cantidadCensadosAusentes;
-
 	int isEmpty;
-
-
 }CargaDatos;
 int inicializarCargarDatos(CargaDatos* listaCargarDatos, int len);
 int buscarEspacioLibreCargarDatos(CargaDatos* listaCargarDatos, int len);

@@ -128,3 +128,37 @@ int localidadConMasCasasAusentes(Zona* listaZona, int lenZona, Localidad* listaL
 
 	return retorno;
 }
+//d. Informar el censista cuya zona fue la más censada (total censados presencial y virtual)
+int censistaConLaZonaMasCensada(Censista* listaCensistas, int lenCensista, Zona* listaZona, int lenZona, CargaDatos* listaCargarDatos, int lenCargarDatos, int* totalCensados, char* censista)
+{
+	int retorno=-1;
+	int acumuladorCensados=0;
+	char censistaConLaZonaMasCensada[50];
+
+	if(listaZona!=NULL && listaCensistas!=NULL && listaCargarDatos!=NULL && lenZona>0 && lenCargarDatos>0 && lenCensista>0)
+	{
+		for(int i=0;i<lenCensista;i++)
+		{
+			for(int j=0;j<lenZona;j++)
+			{
+				for(int k=0;k<lenCargarDatos;k++)
+				{
+					if(listaCensistas[i].idCensista==listaCargarDatos[k].idCensados)
+					{
+						acumuladorCensados=acumuladorCensados+listaCargarDatos[k].cantidadCensadosInSitu+listaCargarDatos[k].cantidadCensadosFormularioDigital;
+						strcpy(censistaConLaZonaMasCensada, listaCensistas[i].apellido);
+						strcat(censistaConLaZonaMasCensada, ", ");
+						strcat(censistaConLaZonaMasCensada, listaCensistas[i].nombre);
+						strcpy(censista, censistaConLaZonaMasCensada);
+					}
+				}
+			}
+		}
+		retorno=0;
+		totalCensados=acumuladorCensados;
+	}
+
+
+
+	return retorno;
+}

@@ -11,5 +11,7 @@
 int cantidadCensistasActivosConZonaPendiente(Censista* listaCensistas, int lenCensista, Zona* listaZona, int lenZona, int* contadorCensistasActivosConZonaPendiente);
 int mostrarCensistasPorLocalidad(Censista* listaCensistas, int lenCensista, Zona* listaZona, int lenZona, Localidad* listaLocalidades, int lenLocalidades, char localidad[]);
 int localidadConMasCasasAusentes(Zona* listaZona, int lenZona, Localidad* listaLocalidades, int lenLocalidades, CargaDatos* listaCargarDatos, int lenCargarDatos, int* cantidadMaximaAusentes, char* localidadMaximaAusentes);
+int censistaConLaZonaMasCensada(Censista* listaCensistas, int lenCensista, Zona* listaZona, int lenZona, CargaDatos* listaCargarDatos, int lenCargarDatos, int* totalCensados, char* censista);
+
 
 #endif /* INFORMES_H_ */
