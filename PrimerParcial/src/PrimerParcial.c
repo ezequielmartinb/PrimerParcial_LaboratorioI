@@ -21,11 +21,7 @@
 #define TAM_ZONA 5
 #define TAM_LOCALIDADES 8
 #define TAM_CARGAR_DATOS 5
-/*
- * 9. Informes:
-		d. Informar el censista cuya zona fue la más censada (total censados presencial y virtual)
-		e. Informar el promedio de censos por censista/zona.
- */
+
 int main(void)
 {
 	Censista listaCensista[TAM_CENSISTA]={
@@ -188,6 +184,7 @@ int main(void)
 								}
 								break;
 							case 5:
+								//e. Informar el promedio de censos por censista/zona.
 								break;
 						}
 					}
